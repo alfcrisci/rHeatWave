@@ -9,28 +9,28 @@ create_clim_param_HW(data, name, index = "ATI", yiniclim = "1981",
   save_clim = F)
 }
 \arguments{
-\item{data.frame}{data Daily time series with colums' names: date(YYYY-MM-DD),tmed,tmax,tmin,rhum,vmed.}
+\item{data}{data.frame Daily time series with colums' names: date(YYYY-MM-DD),tmed,tmax,tmin,rhum,vmed.}
 
-\item{character}{name Name of location or ID of time series.}
+\item{name}{character Name of location or ID of time series.}
 
-\item{character}{index Biometerological index to calculate apparent temperature.}
+\item{index}{character Biometerological index to calculate apparent temperature.}
 
-\item{character}{yiniclim Initial year of climatological reference time period, Default is "1981".}
+\item{yfinclim}{character Final year of climatological reference time period, Default is "2010".}
 
-\item{character}{yfinclim Final year of climatological reference time period, Default is "2010".}
+\item{PT}{numeric  Three levels of percentile used as thresholds for intensity. Default are c(90, 95, 98).}
 
-\item{numeric}{PT Three levels of percentile used as thresholds for intensity. Default are c(90, 95, 98).}
+\item{window_days}{numeric Half Day span to calculate daily climatology. Default is 15.}
 
-\item{numeric}{window_days Half Day span to calculate daily climatology. Default is 15.}
+\item{save_clim}{logical If True save file daily and montly in RDS and CSV format. Default is F.}
 
-\item{logical}{save_clim If True save file daily and montly in RDS and CSV format. Default is F.}
+\item{iniclim}{character Initial year of climatological reference time period, Default is "1981".}
 }
 \value{
-list Return a list of data.frame respectively with monthly and daily values.
+Return a list of data.frame respectively with monthly and daily values.
 }
 \description{
-Calculate the parameters to assess heat-wave daily status from a climatic time series monthly. 
-Mean air temperature , mean relative humidity and extreme thermal values are required. 
+Calculate the parameters to assess heat-wave daily status from a climatic time series monthly.
+Mean air temperature , mean relative humidity and extreme thermal values are required.
 Parameters
 }
 \author{

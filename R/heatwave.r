@@ -64,26 +64,25 @@ findindexes=function(x,window=15) {
 ####################################################
 #' selected_italian_weather
 #'
-#' @description  Main features of a selected GSOD italian weather station  
-#' 
-#' @references   Data are obtained from GSOD. \url{https://data.noaa.gov/dataset/global-surface-summary-of-the-day-gsod}
-#' @format data.frame 
-#' 
+#' @description  Main features of a selected GSOD italian weather station.
+#'
+#' @references   Data are obtained from GSOD NOAA site.  \url{https://data.noaa.gov/dataset/global-surface-summary-of-the-day-gsod}
+#' @format data.frame
+#'
 #' @source \url{https://data.noaa.gov/dataset/global-surface-summary-of-the-day-gsod}
-#' @author  Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@@ibimet.cnr.it
-#' @keywords  meteo
+#' @author  Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@@ibimet.cnr.it}
 #'
 
 ####################################################
 #' geo_selected_italian_weather
 #'
-#' @description  Geographical information of a selected GSOD italian weather station.  
-#' 
+#' @description  Geographical information of a selected GSOD italian weather station.
+#'
 #' @references   Data are obtained from GSOD NOAA site. \url{https://data.noaa.gov/dataset/global-surface-summary-of-the-day-gsod}
-#' @format SpatialPointDataframe 
-#' 
+#' @format SpatialPointDataframe
+#'
 #' @source \url{https://data.noaa.gov/dataset/global-surface-summary-of-the-day-gsod}
-#' @author  Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@@ibimet.cnr.it
+#' @author  Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@@ibimet.cnr.it}
 #' @keywords  meteo spatial
 #'
 
@@ -94,16 +93,16 @@ findindexes=function(x,window=15) {
 #' Mean air temperature, mean relative humidity and extreme thermal values are required.
 #'
 #'
-#' @param data.frame data Daily time series with colums' names: date(YYYY-MM-DD),tmed,tmax,tmin,rhum,vmed.
-#' @param data.frame clim_array Name of location or the time series analized.
-#' @param character method Method to assess critical and heatwave days. Default is "EuroHeat" and other are "TMAX","TMED","TMIN".
-#' @param character index Biometerological index to calculate apparent temperature with ATI or UTCI. Default is "ATI" corresponding to the shaded version of ATI Steadman (2004).
-#' @param logical  wind If TRUE the wind in biometeorological index are considered.
-#' @param numeric months The month her HW days are calculated. Default are c(5:9) corresponding to May-Dec.
-#' @param numeric P_intesity If one of the "TMAX","TMED","TMIN" methods was selected is the level of intensity in term of percentiles.Default are c(95),
-#' @param numeric duration. Minimum spell of critical days to be considered for heatave definition. Default is 2.
-#' @param numeric time_reference. Temporal format of the referenced climatology: DAY (daily) or MON (monthly).Default is "DAY".
-#' @return list Return a list of data.frame respectively with monthly and daily values.
+#' @param data data.frame Daily time series with colums' names: date(YYYY-MM-DD),tmed,tmax,tmin,rhum,vmed.
+#' @param clim_array data.frame Name of location or the time series analized.
+#' @param method character Method to assess critical and heatwave days. Default is "EuroHeat" and other are "TMAX","TMED","TMIN".
+#' @param index character Biometerological index to calculate apparent temperature with ATI or UTCI. Default is "ATI" corresponding to the shaded version of ATI Steadman (2004).
+#' @param wind logical  If TRUE the wind in biometeorological index are considered.
+#' @param months numeric The month her HW days are calculated. Default are c(5:9) corresponding to May-Dec.
+#' @param P_intesity numeric If one of the "TMAX","TMED","TMIN" methods was selected is the level of intensity in term of percentiles.Default are c(95),
+#' @param  duration numeric Minimum spell of critical days to be considered for heatave definition. Default is 2.
+#' @param time_reference numeric Temporal format of the referenced climatology: DAY (daily) or MON (monthly).Default is "DAY".
+#' @return Return a list of data.frame respectively with monthly and daily values.
 #'
 #'
 #' @author  Istituto di Biometeorologia Firenze Italy  Alfonso Crisci \email{a.crisci@@ibimet.cnr.it}
@@ -116,27 +115,7 @@ findindexes=function(x,window=15) {
 #'
 #'
 #'
-#' @param data.frame data Daily time series with colums' names: date(YYYY-MM-DD),tmed,tmax,tmin,rhum,vmed.
-#' @param data.frame clim_array Name of location or the time series analized.
-#' @param character method Method to assess critical and heatwave days. Default is "EuroHeat" and other are "TMAX","TMED","TMIN".
-#' @param character index Biometerological index to calculate apparent temperature with ATI or UTCI. Default is "ATI" corresponding to the shaded version of ATI Steadman (2004).
-#' @param logical  wind If TRUE the wind in biometeorological index are considered.
-#' @param numeric months The month her HW days are calculated. Default are c(5:9) corresponding to May-Dec.
-#' @param numeric P_intesity If one of the "TMAX","TMED","TMIN" methods was selected is the level of intensity in term of percentiles.Default are c(95),
-#' @param numeric duration. Minimum spell of critical days to be considered for heatave definition. Default is 2.
-#' @param numeric time_reference. Temporal format of the referenced climatology: DAY (daily) or MON (monthly).Default is "DAY".
-#' @return list Return a list of data.frame respectively with monthly and daily values.
-#'
-#'
-#' @author  Istituto di Biometeorologia Firenze Italy  Alfonso Crisci \email{a.crisci@@ibimet.cnr.it}
-#' @keywords heat wave
-#'
-#' @export
-#'
-#'
-#'
-#'
-#'
+
 
 calculate_HWdays=function(data,
                           clim_array,
@@ -351,15 +330,15 @@ calculate_HWdays=function(data,
 #' Parameters
 #'
 #'
-#' @param data.frame data Daily time series with colums' names: date(YYYY-MM-DD),tmed,tmax,tmin,rhum,vmed.
-#' @param character name Name of location or ID of time series.
-#' @param character index Biometerological index to calculate apparent temperature.
-#' @param character yiniclim Initial year of climatological reference time period, Default is "1981".
-#' @param character yfinclim Final year of climatological reference time period, Default is "2010".
-#' @param numeric PT Three levels of percentile used as thresholds for intensity. Default are c(90, 95, 98).
-#' @param numeric window_days Half Day span to calculate daily climatology. Default is 15.
-#' @param logical save_clim If True save file daily and montly in RDS and CSV format. Default is F.
-#' @return list Return a list of data.frame respectively with monthly and daily values.
+#' @param data data.frame Daily time series with colums' names: date(YYYY-MM-DD),tmed,tmax,tmin,rhum,vmed.
+#' @param name character Name of location or ID of time series.
+#' @param index character Biometerological index to calculate apparent temperature.
+#' @param iniclim character Initial year of climatological reference time period, Default is "1981".
+#' @param yfinclim character Final year of climatological reference time period, Default is "2010".
+#' @param PT numeric  Three levels of percentile used as thresholds for intensity. Default are c(90, 95, 98).
+#' @param window_days numeric Half Day span to calculate daily climatology. Default is 15.
+#' @param save_clim logical If True save file daily and montly in RDS and CSV format. Default is F.
+#' @return Return a list of data.frame respectively with monthly and daily values.
 #'
 #'
 #' @author  Istituto di Biometeorologia Firenze Italy  Alfonso Crisci \email{a.crisci@@ibimet.cnr.it}
@@ -384,6 +363,7 @@ create_clim_param_HW=function(data,
   if (class(data) != "data.frame") {stop(paste("data argument must be a daily data.frame object with column's names equal to:",
                                                "date( %Y-%m-%d ),tmed,tmax,tmin,rhum,vmed"))
   }
+  if (length(PT) != 3 ) {stop(paste("Please  three values of PT parameter are required!"))}
 
   dates=seq(as.Date(paste0(yiniclim,"-01-01")),as.Date(paste0(yfinclim,"-12-31")),1)
   indexday=which(as.character(data$date) %in% as.character(dates) ==T)
@@ -551,24 +531,24 @@ create_clim_param_HW=function(data,
 #' Download and build a specific data.frame for heatwave analisys from a GSOD NOAA repository station based on its unique USAF code.
 #'
 #'
-#' @param character x USAF code of weather station.
-#' @param character name Name of location or ID of time series.
-#' @param character ini_year Initial year of data time period, Default is "1979".
-#' @param character last_year Final year of climatological reference time period, Default is "2016".
-#' @param logical save_files If True save GSOD data file in RDS and CSV format. Default is F.
-#' @return data.frame Return  data ready to use for heat-wave analitics.
+#' @param id character USAF code of weather station.
+#' @param name character Name of location or ID of time series.
+#' @param ini_year character Initial year of data time period, Default is "1979".
+#' @param last_year character Final year of climatological reference time period, Default is "2016".
+#' @param save_files logical If True save GSOD data file in RDS and CSV format. Default is F.
+#' @return  Return  data.frame ready to use for heat-wave analitics.
 #'
 #' @author  Istituto di Biometeorologia Firenze Italy  Alfonso Crisci \email{a.crisci@@ibimet.cnr.it}
 #' @keywords GSOD
-#' @importFrom GSODtools gzGsodStations
+#' @importFrom GSODTools gzGsodStations
 #' @importFrom lubridate ymd
 #' @export
 #'
 #'
 #'
 
-manage_GSOD=function(x,name,ini_year = 1979, last_year = 2015, missing=NA,save_files=T) {
-  retrieveGSOD(usaf=x,start_year = ini_year, end_year = last_year)
+manage_GSOD=function(id,name,ini_year = 1979, last_year = 2015, missing=NA,save_files=T) {
+  retrieveGSOD(usaf=id,start_year = ini_year, end_year = last_year)
   temp_daily<- gzGsodStations(x,start_year = ini_year, end_year = last_year)
   temp_daily$Date=as.Date(ymd(temp_daily$YEARMODA))
   temp_daily$YEARMODA=NULL
@@ -583,7 +563,12 @@ manage_GSOD=function(x,name,ini_year = 1979, last_year = 2015, missing=NA,save_f
   temp_daily$vmed=knots2ms(temp_daily$WDSP,1)
   temp_daily$vmax=knots2ms(temp_daily$MXSPD,1)
   temp_daily=temp_daily[c("date","tmed","tmax","tmin","rhum","DEWP","vmed","vmax","prec","slp")]
+  if ( save_files == T) {
+                         saveRDS(temp_daily,paste0(name,"_DAYCLIM.rds"))
+                         write.csv(temp_daily,paste0(name,"_DAYCLIM.csv"))
 
+                        }
+  return(temp_daily)
 }
 
 

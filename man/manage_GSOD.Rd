@@ -4,22 +4,22 @@
 \alias{manage_GSOD}
 \title{manage_GSOD}
 \usage{
-manage_GSOD(x, name, ini_year = 1979, last_year = 2015, missing = NA,
+manage_GSOD(id, name, ini_year = 1979, last_year = 2015, missing = NA,
   save_files = T)
 }
 \arguments{
-\item{character}{x USAF code of weather station.}
+\item{id}{character USAF code of weather station.}
 
-\item{character}{name Name of location or ID of time series.}
+\item{name}{character Name of location or ID of time series.}
 
-\item{character}{ini_year Initial year of data time period, Default is "1979".}
+\item{ini_year}{character Initial year of data time period, Default is "1979".}
 
-\item{character}{last_year Final year of climatological reference time period, Default is "2016".}
+\item{last_year}{character Final year of climatological reference time period, Default is "2016".}
 
-\item{logical}{save_files If True save GSOD data file in RDS and CSV format. Default is F.}
+\item{save_files}{logical If True save GSOD data file in RDS and CSV format. Default is F.}
 }
 \value{
-data.frame Return  data ready to use for heat-wave analitics.
+Return  data.frame ready to use for heat-wave analitics.
 }
 \description{
 Download and build a specific data.frame for heatwave analisys from a GSOD NOAA repository station based on its unique USAF code.

@@ -2,40 +2,83 @@
 % Please edit documentation in R/heatwave.r
 \name{calculate_HWdays}
 \alias{calculate_HWdays}
-\title{calculate_HWdays}
+\title{selected_italian_weather}
+\format{data.frame}
+\source{
+\url{https://data.noaa.gov/dataset/global-surface-summary-of-the-day-gsod}
+
+\url{https://data.noaa.gov/dataset/global-surface-summary-of-the-day-gsod}
+}
 \usage{
 calculate_HWdays(data, clim_array, method = "EuroHeat", index = "ATI",
   wind = T, months = c(5:9), P_intesity = c(95), duration = 2,
   time_reference = "DAY")
 }
 \arguments{
-\item{data.frame}{data Daily time series with colums' names: date(YYYY-MM-DD),tmed,tmax,tmin,rhum,vmed.}
+\item{data}{data.frame Daily time series with colums' names: date(YYYY-MM-DD),tmed,tmax,tmin,rhum,vmed.}
 
-\item{data.frame}{clim_array Name of location or the time series analized.}
+\item{clim_array}{data.frame Name of location or the time series analized.}
 
-\item{character}{method Method to assess critical and heatwave days. Default is "EuroHeat" and other are "TMAX","TMED","TMIN".}
+\item{method}{character Method to assess critical and heatwave days. Default is "EuroHeat" and other are "TMAX","TMED","TMIN".}
 
-\item{character}{index Biometerological index to calculate apparent temperature with ATI or UTCI. Default is "ATI" corresponding to the shaded version of ATI Steadman (2004).}
+\item{index}{character Biometerological index to calculate apparent temperature with ATI or UTCI. Default is "ATI" corresponding to the shaded version of ATI Steadman (2004).}
 
-\item{logical}{wind If TRUE the wind in biometeorological index are considered.}
+\item{wind}{logical  If TRUE the wind in biometeorological index are considered.}
 
-\item{numeric}{months The month her HW days are calculated. Default are c(5:9) corresponding to May-Dec.}
+\item{months}{numeric The month her HW days are calculated. Default are c(5:9) corresponding to May-Dec.}
 
-\item{numeric}{P_intesity If one of the "TMAX","TMED","TMIN" methods was selected is the level of intensity in term of percentiles.Default are c(95),}
+\item{P_intesity}{numeric If one of the "TMAX","TMED","TMIN" methods was selected is the level of intensity in term of percentiles.Default are c(95),}
 
-\item{numeric}{duration. Minimum spell of critical days to be considered for heatave definition. Default is 2.}
+\item{duration}{numeric Minimum spell of critical days to be considered for heatave definition. Default is 2.}
 
-\item{numeric}{time_reference. Temporal format of the referenced climatology: DAY (daily) or MON (monthly).Default is "DAY".}
+\item{time_reference}{numeric Temporal format of the referenced climatology: DAY (daily) or MON (monthly).Default is "DAY".}
 }
 \value{
-list Return a list of data.frame respectively with monthly and daily values.
+Return a list of data.frame respectively with monthly and daily values.
 }
 \description{
-Calculate HWdays days and Critical ones adding some columns at data.frame.
-Mean air temperature, mean relative humidity and extreme thermal values are required.
+Main features of a selected GSOD italian weather station.
+
+Geographical information of a selected GSOD italian weather station.
+}
+\references{
+Data are obtained from GSOD NOAA site.  \url{https://data.noaa.gov/dataset/global-surface-summary-of-the-day-gsod}
+
+Data are obtained from GSOD NOAA site. \url{https://data.noaa.gov/dataset/global-surface-summary-of-the-day-gsod}
 }
 \author{
+Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@ibimet.cnr.it}
+
+geo_selected_italian_weather
+
+Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@ibimet.cnr.it}
+
 Istituto di Biometeorologia Firenze Italy  Alfonso Crisci \email{a.crisci@ibimet.cnr.it}
 }
+\keyword{Calculate}
+\keyword{Critical}
+\keyword{HWdays}
+\keyword{Mean}
+\keyword{adding}
+\keyword{air}
+\keyword{and}
+\keyword{are}
+\keyword{at}
+\keyword{calculate_HWdays}
+\keyword{columns}
+\keyword{data.frame.}
+\keyword{days}
+\keyword{extreme}
 \keyword{heat}
+\keyword{humidity}
+\keyword{mean}
+\keyword{meteo}
+\keyword{ones}
+\keyword{relative}
+\keyword{required.}
+\keyword{some}
+\keyword{spatial}
+\keyword{temperature,}
+\keyword{thermal}
+\keyword{values}
 \keyword{wave}
