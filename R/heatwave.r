@@ -383,9 +383,9 @@ create_clim_param_HW=function(data,
 
   ##########################################################################################################################################################################
 
-  temp_matTappmax=NA
+  temp_mat$Tappmax=NA
   temp_mat$Tappmed=NA
-  temp_matTappmax_v=NA
+  temp_mat$Tappmax_v=NA
   temp_mat$Tappmed_v=NA
 
   if ( index=="ATI")
@@ -407,7 +407,7 @@ create_clim_param_HW=function(data,
 
     if ( length(grep("vmed",names(temp_mat)))>0)
     { temp_mat$Tappmax_v=round(UTCI(temp_mat$tmax,temp_mat$rhum,temp_mat$vmed,temp_mat$tmax),1)
-    temp_mat$Tappmed_v=round(UTCI(temp_mat$tmed,temp_mat$rhum,temp_mat$vmed,temp_mat$tmed),1)
+      temp_mat$Tappmed_v=round(UTCI(temp_mat$tmed,temp_mat$rhum,temp_mat$vmed,temp_mat$tmed),1)
     }
   }
 
@@ -420,7 +420,7 @@ create_clim_param_HW=function(data,
   ##########################################################################################################################################################################
 
   temp_clim=data.frame(Tmax_P50=NA,Tmax_PT1=NA,Tmax_PT2=NA,Tmax_PT3=NA,
-                       TmaxApp_P50=NA,TmaxAppP_PT1=NA,TmaxApp_PT2=NA,TmaxApp_PT3=NA,
+                       TmaxApp_P50=NA,TmaxApp_PT1=NA,TmaxApp_PT2=NA,TmaxApp_PT3=NA,
                        TmaxApp_V_P50=NA, TmaxApp_V_PT1=NA,TmaxApp_V_PT2=NA,TmaxApp_V_PT3=NA,
                        Tmin_P50=NA,Tmin_PT1=NA,Tmin_PT2=NA,Tmin_PT3=NA,
                        Tmed_P50=NA,Tmed_PT1=NA,Tmed_PT2=NA,Tmed_PT3=NA)
@@ -471,8 +471,8 @@ create_clim_param_HW=function(data,
 
     temp_clim_monthly$TmaxApp_P50[i]=as.numeric(median(temp_mat_climdata[which((temp_mat_climdata$mese == i)),]$Tappmax,na.rm=T))
     temp_clim_monthly$TmaxApp_PT1[i]=as.numeric(quantile(temp_mat_climdata[which((temp_mat_climdata$mese == i)),]$Tappmax,PTD[1],na.rm=T)[1])
-    temp_clim_monthly$Tmax_PT2[i]=as.numeric(quantile(temp_mat_climdata[which((temp_mat_climdata$mese == i)),]$tmax,PTD[2],na.rm=T)[1])
-    temp_clim_monthly$Tmax_PT3[i]=as.numeric(quantile(temp_mat_climdata[which((temp_mat_climdata$mese == i)),]$tmax,PTD[3],na.rm=T)[1])
+    temp_clim_monthly$TmaxApp_PT2[i]=as.numeric(quantile(temp_mat_climdata[which((temp_mat_climdata$mese == i)),]$tmax,PTD[2],na.rm=T)[1])
+    temp_clim_monthly$TmaxApp_PT3[i]=as.numeric(quantile(temp_mat_climdata[which((temp_mat_climdata$mese == i)),]$tmax,PTD[3],na.rm=T)[1])
 
     temp_clim_monthly$TmaxApp_V_P50[i]=as.numeric(median(temp_mat_climdata[which((temp_mat_climdata$mese == i)),]$Tappmax_v,na.rm=T))
     temp_clim_monthly$TmaxApp_V_PT1[i]=as.numeric(quantile(temp_mat_climdata[which((temp_mat_climdata$mese == i)),]$Tappmax_v,PTD[1],na.rm=T)[1])
