@@ -122,7 +122,6 @@ calculate_HWdays=function(data,
                           method="EuroHeat",
                           index="ATI",
                           wind=T,
-                          months=c(5:9),
                           P_intesity=c(95),
                           duration=2,
                           time_reference="DAY"
@@ -317,8 +316,10 @@ calculate_HWdays=function(data,
   # MON Loop
 
   #######################################################################################################################
-
-  return(temp_mat)
+                          
+  res_HW=temp_mat["date","mese","yday365","CritDay","HWDay"]
+   
+  return(res_HW)
 
 }
 
