@@ -154,7 +154,7 @@ calculate_HWdays=function(data,
 
     if ( wind == T)
     {  temp_mat$Tappmax=round(steadman_outdoor_shade(temp_mat$tmax,temp_mat$rhum,temp_mat$vmed),1)
-    temp_mat$Tappmed=round(steadman_outdoor_shade(temp_mat$tmed,temp_mat$rhum,temp_mat$vmed),1)
+        temp_mat$Tappmed=round(steadman_outdoor_shade(temp_mat$tmed,temp_mat$rhum,temp_mat$vmed),1)
     }
   }
 
@@ -316,8 +316,9 @@ calculate_HWdays=function(data,
   # MON Loop
 
   #######################################################################################################################
-                          
-  res_HW=temp_mat["date","mese","yday365","CritDay","HWDay"]
+  if ( method == "EuroHeat") {res_HW=temp_mat["date","mese","yday365","CritDay","HWDay"]}
+  
+  if ( method == "EuroHeat") {res_HW=temp_mat["date","mese","yday365","CritDay","HWDay","Tappmax","Tappmed"]}
    
   return(res_HW)
 
