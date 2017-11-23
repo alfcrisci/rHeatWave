@@ -59,7 +59,17 @@ findindexes = function(x,window=15) {
   indexdayj[(j-window+1):(j+window-1)]
 }
 
-
+####################################################
+#' firenze_peretola_gsod_1979_2015
+#'
+#' @description  Firenze Peretola 1979-2015 16700 GSOD daily weather data.
+#'
+#' @references   Data are obtained from GSOD NOAA site.  \url{https://data.noaa.gov/dataset/global-surface-summary-of-the-day-gsod}
+#' @format data.frame
+#'
+#' @source \url{https://data.noaa.gov/dataset/global-surface-summary-of-the-day-gsod}
+#' @author  Istituto di Biometeorologia Firenze Italy  Alfonso crisci \email{a.crisci@@ibimet.cnr.it}
+#'
 
 ####################################################
 #' selected_italian_weather
