@@ -53,9 +53,9 @@ is.leapyear=function(year){
 
 
 
-findindexes=function(x,window=15) {
-  j=window+x
-  indexdayj=c(c(365-window):365,c(1:365),c(1:window))
+findindexes = function(x,window=15) {
+  j = window+x
+  indexdayj = c(c(365-window):365,c(1:365),c(1:window))
   indexdayj[(j-window+1):(j+window-1)]
 }
 
@@ -316,9 +316,9 @@ calculate_HWdays=function(data,
   # MON Loop
 
   #######################################################################################################################
-  if ( method == "EuroHeat") {res_HW=temp_mat["date","mese","yday365","CritDay","HWDay"]}
+  res_HW=temp_mat[c("date","mese","yday365","CritDay","HWDay")]
   
-  if ( method == "EuroHeat") {res_HW=temp_mat["date","mese","yday365","CritDay","HWDay","Tappmax","Tappmed"]}
+  if ( method == "EuroHeat") {res_HW=temp_mat[c("date","mese","yday365","CritDay","HWDay","Tappmax","Tappmed")]}
    
   return(res_HW)
 
